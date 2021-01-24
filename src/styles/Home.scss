@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .home_header_text {
+    margin-top: -30px;
+    font-size: 150px;
+  }
+  form {
+    .home_input {
+      display: flex;
+      max-width: fit-content;
+      align-items: center;
+      padding: 10px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 666px;
+      margin: 50px 0;
+      border: 1px solid rgb(186, 181, 181);
+      input {
+        border: none;
+        width: 470px;
+        outline-width: 0;
+        padding: 10px;
+      }
+    }
+  }
+}
