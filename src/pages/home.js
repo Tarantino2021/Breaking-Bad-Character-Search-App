@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useViewportScroll, useTransform } from "framer-motion";
 import SearchIcon from "@material-ui/icons/Search";
 import { useMyContext } from "../context/contextProvider";
 //component
@@ -7,7 +6,7 @@ import Card from "../components/Card";
 
 const Home = () => {
   //cotext
-  const { poster, fetchMovies, list } = useMyContext();
+  const { poster, fetchMovies } = useMyContext();
 
   //input state
   const [query, setQuery] = useState("");
@@ -23,9 +22,6 @@ const Home = () => {
   const handleChange = async (e) => {
     setQuery(e.target.value);
   };
-
-  //framer motion animation on scoll
-  const { scrollYProgress } = useViewportScroll();
 
   return (
     <div className="home">

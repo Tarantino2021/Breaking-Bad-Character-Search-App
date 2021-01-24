@@ -11,7 +11,7 @@ function MyList() {
       {list.length > 0 ? (
         <>
           {list?.map((item) => (
-            <div className="myList_item_wrapper">
+            <div className="myList_item_wrapper" key={item.char_id}>
               <img src={item.img} />
               <div className="myList_text_top">
                 <h1>{item.name}</h1>

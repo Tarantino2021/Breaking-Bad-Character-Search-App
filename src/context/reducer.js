@@ -1,4 +1,7 @@
 function reducer(state, action) {
+  {
+    console.log(action);
+  }
   switch (action.type) {
     case "SEARCH_CHAR":
       return {
@@ -6,14 +9,19 @@ function reducer(state, action) {
         poster: action.payload,
       };
     case "ADD_CHAR":
+      if (state.list.filter((item) => item.char_id === action.payload)) {
+        state.list.push({
+          ...action.payload,
+        });
+      }
       return {
         ...state,
-        list: [...state.list, action.payload],
+        list: [...state.list],
       };
     case "DELETE_CHAR":
       return {
         ...state,
-        list: state.list.filter((item) => item.id !== action.payload),
+        list: state.list.filter((item) => item.char_id != action.payload),
       };
 
     default:

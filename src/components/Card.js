@@ -9,7 +9,7 @@ function Card({ item }) {
 
   //check if i have the item in myList
   const inMyList = (char) => {
-    return !!list.find((item) => item.id === char.id);
+    return !!list.find((item) => item.char_id === char.char_id);
   };
 
   //animation logic
@@ -44,14 +44,25 @@ function Card({ item }) {
         <h1>{item.name}</h1>
         <span>Nickname: {item.nickname}</span>
       </div>
+      {inMyList(item) && (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => addtoList(item)}
+        >
+          ADD TO CART
+        </Button>
+      )}
 
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => addtoList(item)}
-      >
-        ADD TO CART
-      </Button>
+      {!inMyList(item) && (
+        <Button
+          variant="contained"
+          color="primery"
+          onClick={() => addtoList(item)}
+        >
+          ADD TO CART
+        </Button>
+      )}
     </div>
   );
 }
