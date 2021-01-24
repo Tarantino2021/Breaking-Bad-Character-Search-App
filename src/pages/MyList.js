@@ -6,25 +6,24 @@ function MyList() {
   const { list, deleteChar } = useMyContext();
 
   return (
-    <div>
-      YOUR LIST
+    <div className="myList">
+      <h1 className="myList_heading">YOUR LIST OF CHARACTERS</h1>
       {list.length > 0 ? (
         <>
           {list?.map((item) => (
-            <>
+            <div className="myList_item_wrapper">
               <img src={item.img} />
-              <div className="NewReleasesSectionCard_text_top">
+              <div className="myList_text_top">
                 <h1>{item.name}</h1>
-                <span>Nickname: {item.nickname}</span>
               </div>
               <Button
                 variant="contained"
                 color="secondary"
                 onClick={() => deleteChar(item.char_id)}
               >
-                DELET THE ITEM
+                DELETE THE CHARACTER
               </Button>
-            </>
+            </div>
           ))}
         </>
       ) : (

@@ -26,7 +26,6 @@ const Home = () => {
 
   //framer motion animation on scoll
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   return (
     <div className="home">
@@ -50,7 +49,7 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <h1>No Search Results...Try Again</h1>
+        <h1>No Search Results...Search Again...</h1>
       )}
     </div>
   );
