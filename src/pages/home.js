@@ -6,7 +6,7 @@ import Card from "../components/Card";
 
 const Home = () => {
   //cotext
-  const { poster, fetchMovies } = useMyContext();
+  const { characters, fetchMovies, loading } = useMyContext();
 
   //input state
   const [query, setQuery] = useState("");
@@ -38,9 +38,9 @@ const Home = () => {
         </div>
       </form>
 
-      {poster?.length > 0 ? (
+      {characters?.length > 0 ? (
         <div className="wrapper">
-          {poster.map((item) => (
+          {characters.map((item) => (
             <Card key={item.char_id} item={item} />
           ))}
         </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer, useEffect } from "react";
 import MyGlobalContext from "./context";
 import axios from "axios";
 import reducer from "./reducer";
@@ -10,8 +10,13 @@ export const useMyContext = () => {
 
 function ContextProvider({ children }) {
   const initialState = {
-    poster: [],
-    list: [],
+    characters: localStorage.getItem("characters")
+      ? JSON.parse(localStorage.getItem("characters"))
+      : [],
+    list: localStorage.getItem("list")
+      ? JSON.parse(localStorage.getItem("list"))
+      : [],
+    loading: false,
   };
 
   //reducer
@@ -22,7 +27,6 @@ function ContextProvider({ children }) {
   const baseURLID = "https://www.breakingbadapi.com/api/characters/";
 
   //ACTIONS
-
   //search
   const fetchMovies = async (input) => {
     const request = await axios.get(`${baseURL}${input}`);
@@ -50,16 +54,21 @@ function ContextProvider({ children }) {
     });
   };
 
-  console.log(state.list);
+  //setting localStorage
+  useEffect(() => {
+    localStorage.setItem("characters", JSON.stringify(state.characters));
+    localStorage.setItem("list", JSON.stringify(state.list));
+  }, [state]);
 
   return (
     <MyGlobalContext.Provider
       value={{
-        poster: state.poster,
+        characters: state.characters,
         fetchMovies,
         list: state.list,
         addtoList,
         deleteChar,
+        loading: state.loading,
       }}
     >
       {children}

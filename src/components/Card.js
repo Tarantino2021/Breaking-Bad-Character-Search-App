@@ -45,22 +45,18 @@ function Card({ item }) {
         <span>Nickname: {item.nickname}</span>
       </div>
       {inMyList(item) && (
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => addtoList(item)}
-        >
-          ADD TO CART
+        <Button variant="contained" color="secondary" disable>
+          ITEM ADDED
         </Button>
       )}
 
       {!inMyList(item) && (
         <Button
           variant="contained"
-          color="primery"
+          color="primary"
           onClick={() => addtoList(item)}
         >
-          ADD TO CART
+          ADD TO YOUR LIST
         </Button>
       )}
     </div>
