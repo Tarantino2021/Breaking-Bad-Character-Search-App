@@ -22,13 +22,17 @@ function ContextProvider({ children }) {
   //reducer
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //Api URL
   const baseURL = "https://www.breakingbadapi.com/api/characters?name=";
 
-  const baseURLID = "https://www.breakingbadapi.com/api/characters/";
-
   //ACTIONS
+
   //search
   const fetchMovies = async (input) => {
+    dispatch({
+      type: "SET_LOADING",
+    });
+
     const request = await axios.get(`${baseURL}${input}`);
 
     dispatch({
@@ -40,6 +44,10 @@ function ContextProvider({ children }) {
 
   //addtoList
   const addtoList = (char) => {
+    dispatch({
+      type: "SET_LOADING",
+    });
+
     dispatch({
       type: "ADD_CHAR",
       payload: char,

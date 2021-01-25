@@ -3,6 +3,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useMyContext } from "../context/contextProvider";
 //component
 import Card from "../components/Card";
+//loader
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Home = () => {
   //cotext
@@ -38,15 +40,17 @@ const Home = () => {
         </div>
       </form>
 
-      {characters?.length > 0 ? (
-        <div className="wrapper">
-          {characters.map((item) => (
-            <Card key={item.char_id} item={item} />
-          ))}
-        </div>
-      ) : (
-        <h1>No Search Results...Search Again...</h1>
-      )}
+      <div className="wrapper">
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <>
+            {characters.map((item) => (
+              <Card key={item.char_id} item={item} />
+            ))}
+          </>
+        )}
+      </div>
     </div>
   );
 };
