@@ -1,5 +1,4 @@
 import React from "react";
-import { useMyAlertContext } from "../context/Alert/alertContextProvider";
 
 const AlertBox = ({ text }) => {
   return (

@@ -21,10 +21,11 @@ const Home = () => {
     e.preventDefault();
 
     if (query === "" && characters.length <= 0) {
-      showAlert("Please search your character");
+      showAlert("No Search results...Try Again");
     } else {
       fetchMovies(query);
     }
+
     setQuery("");
   };
 
@@ -46,10 +47,10 @@ const Home = () => {
           />
           <SearchIcon />
         </div>
+        {alert ? <AlertBox text={alert.text} /> : null}
       </form>
 
       <div className="wrapper">
-        {alert ? <AlertBox text={alert.text} /> : null}
         {loading ? (
           <CircularProgress className="loader" />
         ) : (

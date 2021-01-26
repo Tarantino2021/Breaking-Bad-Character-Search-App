@@ -20,7 +20,7 @@ function AlertContextProvider({ children }) {
         text,
       },
     });
-    setTimeout(() => dispatch({ type: "HIDE_ALERT" }), 3000);
+    setTimeout(() => dispatch({ type: "HIDE_ALERT" }), 2000);
   };
 
   return (
