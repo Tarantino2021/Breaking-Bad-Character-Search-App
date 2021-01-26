@@ -45,7 +45,7 @@ function Card({ item }) {
         <span>Nickname: {item.nickname}</span>
       </div>
       {inMyList(item) && (
-        <Button variant="contained" color="secondary" disable>
+        <Button variant="contained" color="secondary" disabled>
           ITEM ADDED
         </Button>
       )}

@@ -16,14 +16,9 @@ function reducer(state, action) {
         loading: false,
       };
     case "ADD_CHAR":
-      if (state.list.filter((item) => item.char_id === action.payload)) {
-        state.list.push({
-          ...action.payload,
-        });
-      }
       return {
         ...state,
-        list: [...state.list],
+        list: [...state.list, action.payload],
         loading: false,
       };
     case "DELETE_CHAR":

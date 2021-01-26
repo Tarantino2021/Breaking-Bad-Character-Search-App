@@ -2,7 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   min-height: 50vh;
+  align-items: center;
+  justify-content: center;
   width: 1000px;
+  .loader {
+    width: 200px !important;
+  }
   .card_top {
     height: 608px;
     width: 442px;

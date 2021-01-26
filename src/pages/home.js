@@ -42,7 +42,7 @@ const Home = () => {
 
       <div className="wrapper">
         {loading ? (
-          <CircularProgress />
+          <CircularProgress className="loader" />
         ) : (
           <>
             {characters.map((item) => (

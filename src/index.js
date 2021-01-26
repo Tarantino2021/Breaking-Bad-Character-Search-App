@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ContextProvider from "./context/contextProvider";
+import AlertContextProvider from "./context/Alert/alertContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <ContextProvider>
-      <App />
+      <AlertContextProvider>
+        <App />
+      </AlertContextProvider>
     </ContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
