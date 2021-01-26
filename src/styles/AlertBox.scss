@@ -1,0 +1,14 @@
+.alertBox {
+  background-color: rgba(218, 10, 10, 0.673);
+  width: 500px;
+  height: 50px;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  .alertBox_text {
+    font-size: 17px;
+    padding: 20px;
+    color: wheat;
+  }
+}

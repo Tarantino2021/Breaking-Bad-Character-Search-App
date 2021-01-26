@@ -1,10 +1,12 @@
 import React from "react";
 import { useMyAlertContext } from "../context/Alert/alertContextProvider";
 
-export default function AlertBox() {
-  const alertComp = useMyAlertContext();
+const AlertBox = ({ text }) => {
+  return (
+    <div className="alertBox">
+      <h1 className="alertBox_text">⚠️ {text}</h1>
+    </div>
+  );
+};
 
-  if (!alertComp.visible) return null;
-
-  return <div className="alertComp">{alertComp.text}</div>;
-}
+export default AlertBox;

@@ -8,32 +8,25 @@ export const useMyAlertContext = () => {
 };
 
 function AlertContextProvider({ children }) {
-  const initialState = {
-    alertVisible: false,
-    alertMessage: "",
-  };
+  const initialState = null;
 
   const [state, dispatch] = useReducer(alertReducer, initialState);
 
   //actions
-  const showAlert = (message) => {
+  const showAlert = (text) => {
     dispatch({
       type: "SHOW_ALERT",
+      payload: {
+        text,
+      },
     });
-  };
-
-  const hideAlert = () => {
-    dispatch({
-      type: "HIDE_ALERT",
-    });
+    setTimeout(() => dispatch({ type: "HIDE_ALERT" }), 3000);
   };
 
   return (
     <MyAlertContext.Provider
       value={{
-        alertVisible: state.alertVisible,
-        alertMessage: state.alertMessage,
-        hideAlert,
+        alert: state,
         showAlert,
       }}
     >

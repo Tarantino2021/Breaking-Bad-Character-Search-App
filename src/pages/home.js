@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import { useMyContext } from "../context/contextProvider";
+import { useMyAlertContext } from "../context/Alert/alertContextProvider";
 //component
 import Card from "../components/Card";
+import AlertBox from "../components/AlertBox";
 //loader
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Home = () => {
   //cotext
   const { characters, fetchMovies, loading } = useMyContext();
+  const { alert, showAlert } = useMyAlertContext();
 
   //input state
   const [query, setQuery] = useState("");
@@ -16,7 +19,12 @@ const Home = () => {
   //submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetchMovies(query);
+
+    if (query === "" && characters.length <= 0) {
+      showAlert("Please search your character");
+    } else {
+      fetchMovies(query);
+    }
     setQuery("");
   };
 
@@ -24,7 +32,7 @@ const Home = () => {
   const handleChange = async (e) => {
     setQuery(e.target.value);
   };
-
+  console.log(characters);
   return (
     <div className="home">
       <h1 className="home_header_text">Say My Name</h1>
@@ -41,6 +49,7 @@ const Home = () => {
       </form>
 
       <div className="wrapper">
+        {alert ? <AlertBox text={alert.text} /> : null}
         {loading ? (
           <CircularProgress className="loader" />
         ) : (

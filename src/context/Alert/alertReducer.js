@@ -3,13 +3,9 @@ import React from "react";
 function alertReducer(state, action) {
   switch (action.type) {
     case "SHOW_ALERT":
-      return {
-        ...state,
-        alertVisible: true,
-        alertMessage: action.message,
-      };
+      return action.payload;
     case "HIDE_ALERT":
-      return { ...state, alertVisible: false };
+      return null;
     default:
       return state;
   }
