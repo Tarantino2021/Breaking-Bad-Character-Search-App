@@ -5,6 +5,22 @@
   align-items: center;
   justify-content: center;
   width: 1000px;
+  @include media("<=tablet") {
+    flex-direction: column;
+    width: 400px;
+  }
+  @include media("<=phoneLarge") {
+    flex-direction: column;
+    width: 300px;
+  }
+  @include media("<=phone") {
+    flex-direction: column;
+    width: 300px;
+  }
+  @include media("<=phoneSmall") {
+    flex-direction: column;
+    width: 300px;
+  }
   .loader {
     width: 200px !important;
   }
@@ -15,6 +31,19 @@
     margin-bottom: 50px;
     margin-left: 14px;
     position: relative;
+    @include media("<=tablet") {
+      flex-direction: column;
+      width: 400px;
+    }
+    @include media("<=phoneLarge") {
+      width: 300px;
+    }
+    @include media("<=phone") {
+      width: 300px;
+    }
+    @include media("<=phoneSmall") {
+      width: 300px;
+    }
     img {
       position: relative;
       transition: all 0.2s ease;
@@ -24,6 +53,9 @@
       object-fit: cover;
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2),
         0px 0px 50px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.2);
+      @include media("<=phoneSmall") {
+        width: 280px;
+      }
     }
     .card_text_top {
       display: flex;
@@ -34,6 +66,7 @@
       left: 25%;
       padding: 20px 20px;
       background-color: rgba(0, 0, 0, 0.666);
+
       h1 {
         color: #ffffff;
         font-size: 26px;
@@ -41,6 +74,9 @@
         margin-top: -10px;
         font-weight: bold;
         z-index: 999999;
+        @include media("<=phoneSmall") {
+          font-size: 20px;
+        }
       }
       span {
         color: #ecdfdf;

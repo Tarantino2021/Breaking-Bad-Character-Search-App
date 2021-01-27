@@ -3,10 +3,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 100vw;
   .home_header_text {
     margin-top: -30px;
     font-size: 150px;
     color: rgb(14, 95, 130);
+    @include media("<=tablet") {
+      font-size: 30px;
+      width: 300px;
+      margin-top: 40px;
+      margin-left: 100px;
+    }
+    @include media("<=phoneLarge") {
+      font-size: 30px;
+      width: 300px;
+      margin-top: 40px;
+      margin-left: 100px;
+    }
+    @include media("<=phone") {
+      font-size: 30px;
+      width: 300px;
+      margin-top: 40px;
+      margin-left: 100px;
+    }
+    @include media("<=phoneSmall") {
+      font-size: 30px;
+      width: 300px;
+      margin-top: 40px;
+      margin-left: 100px;
+    }
   }
   form {
     .home_input {
@@ -18,11 +43,23 @@
       border-radius: 666px;
       margin: 50px 0;
       border: 1px solid rgb(186, 181, 181);
+      @include media("<=phoneLarge") {
+        width: 300px;
+      }
+      @include media("<=phone") {
+        width: 300px;
+      }
+      @include media("<=phoneSmall") {
+        width: 300px;
+      }
       input {
         border: none;
         width: 470px;
         outline-width: 0;
         padding: 10px;
+        @include media("<=phoneSmall") {
+          width: 100vw;
+        }
       }
     }
   }

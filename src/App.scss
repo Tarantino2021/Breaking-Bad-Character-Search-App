@@ -3,6 +3,7 @@
 @import "./styles/Card.scss";
 @import "./styles/MyList.scss";
 @import "./styles/AlertBox.scss";
+@import "./styles/breakpoints.scss";
 
 $main: #f0d8bb;
 $white: #ffffff;
@@ -28,10 +29,13 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-body {
+body,
+html {
   background-color: $main;
   color: $black;
+  overflow-x: hidden;
 }
+
 a {
   color: $black;
   text-decoration: none;

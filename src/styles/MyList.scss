@@ -7,13 +7,46 @@
     padding: 40px;
     text-decoration: underline;
     color: #0e5f82;
+    @include media("<=tablet") {
+      width: 500px;
+      font-size: 30px;
+      margin-left: 55px;
+    }
+    @include media("<=phoneLarge") {
+      width: 400px;
+      font-size: 20px;
+      margin-left: 55px;
+    }
+    @include media("<=phone") {
+      width: 400px;
+      font-size: 20px;
+      margin-left: 55px;
+    }
+    @include media("<=phoneSmall") {
+      width: 400px;
+      font-size: 20px;
+      margin-left: 55px;
+    }
   }
   .myList_item_wrapper {
     margin-bottom: 30px;
+
     .myList_img_wrapper {
       position: relative;
       height: 700px;
       width: 600px;
+      @include media("<=tablet") {
+        width: 300px;
+      }
+      @include media("<=phoneLarge") {
+        width: 300px;
+      }
+      @include media("<=phone") {
+        width: 300px;
+      }
+      @include media("<=phoneSmall") {
+        width: 300px;
+      }
       &:hover {
         display: block;
       }

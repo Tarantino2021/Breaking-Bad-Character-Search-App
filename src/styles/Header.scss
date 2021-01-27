@@ -1,12 +1,25 @@
 $main: #f0d8bb;
 $white: #ffffff;
 $black: #1e1f13;
+@import "./breakpoints.scss";
 
 .header {
   font-size: 16px;
   z-index: 99;
   width: 100%;
   font-weight: "700";
+  @include media("<=tablet") {
+    width: 570px;
+  }
+  @include media("<=phoneLarge") {
+    width: 400px;
+  }
+  @include media("<=phone") {
+    width: 360px;
+  }
+  @include media("<=phoneSmall") {
+    width: 300px;
+  }
   .header_container {
     flex-grow: 1;
     margin: 0 auto;
@@ -23,6 +36,12 @@ $black: #1e1f13;
         a {
           color: black;
           text-decoration: none;
+          @include media("<=phone") {
+            font-size: 12px;
+          }
+          @include media("<=phoneSmall") {
+            font-size: 12px;
+          }
         }
       }
       .menu {
@@ -36,7 +55,16 @@ $black: #1e1f13;
         align-items: center;
         justify-content: center;
         transition: 0.3s ease-in-out;
-
+        @include media("<=phone") {
+          height: 70px;
+          width: 70px;
+          font-size: 12px;
+        }
+        @include media("<=phoneSmall") {
+          height: 70px;
+          width: 70px;
+          font-size: 12px;
+        }
         &:hover {
           color: $white;
           background: $black;
