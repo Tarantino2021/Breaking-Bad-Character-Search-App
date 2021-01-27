@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMyContext } from "../context/contextProvider";
 import Button from "@material-ui/core/Button";
 
@@ -12,7 +12,31 @@ function MyList() {
         <>
           {list?.map((item) => (
             <div className="myList_item_wrapper" key={item.char_id}>
-              <img src={item.img} />
+              <div className="myList_img_wrapper">
+                <img src={item.img} />
+
+                <div className="extraInfo_wrapper">
+                  <div className="extraInfo_text_wrapper">
+                    <h2>
+                      Birthday <h3>{item.birthday}</h3>
+                    </h2>
+                    <h2>
+                      Nickname <h3>{item.nickname}</h3>
+                    </h2>
+                    <h2>
+                      Portrayed <h3>{item.portrayed}</h3>
+                    </h2>
+                    <h2>
+                      Status<h3>{item.status}</h3>{" "}
+                    </h2>
+                    <h2>Occupation</h2>
+                    {item.occupation.map((info) => (
+                      <h3>{info}</h3>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               <div className="myList_text_top">
                 <h1>{item.name}</h1>
               </div>
