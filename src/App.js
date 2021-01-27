@@ -7,7 +7,6 @@ import MyList from "./pages/MyList";
 import Header from "./components/header";
 //Styles
 import "./App.scss";
-//Image
 
 function App() {
   return (
