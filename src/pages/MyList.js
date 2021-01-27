@@ -51,7 +51,7 @@ function MyList() {
           ))}
         </>
       ) : (
-        <h1>YOUR LIST IS EMPTY</h1>
+        <h1>Your list is empty</h1>
       )}
     </div>
   );

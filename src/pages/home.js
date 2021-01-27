@@ -7,6 +7,8 @@ import Card from "../components/Card";
 import AlertBox from "../components/AlertBox";
 //loader
 import CircularProgress from "@material-ui/core/CircularProgress";
+//framer
+import { motion } from "framer-motion";
 
 const Home = () => {
   //cotext
@@ -36,7 +38,14 @@ const Home = () => {
   console.log(characters);
   return (
     <div className="home">
-      <h1 className="home_header_text">Say My Name</h1>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="home_header_text"
+      >
+        Say My Name
+      </motion.h1>
       <form onSubmit={handleSubmit}>
         <div className="home_input">
           <input
